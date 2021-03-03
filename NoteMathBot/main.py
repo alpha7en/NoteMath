@@ -93,12 +93,30 @@ async def maint(message : types.Message):
             await message.answer("патом")
         elif message.text == 'математика 💣':
 
-            b_fiz = KeyboardButton('билеты 🤩')
-            b_math = KeyboardButton('новые теоремы')
+            b_bil = KeyboardButton('геометрия 😈')
+            b_new = KeyboardButton('алгебра 🤗')
             greet_kb = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
-            greet_kb.row(b_fiz, b_math)
-            await message.answer(reply_markup=greet_kb)
+            greet_kb.row(b_bil, b_new)
+            await message.answer("ДАЛЬШЕ ", reply_markup=greet_kb)
+        elif message.text == 'алгебра 🤗':
+            await message.answer("позже")
+        elif message.text == 'геометрия 😈':
 
+            b_bil = KeyboardButton('билеты 🤩')
+            b_new = KeyboardButton('новые теоремы 🤨')
+            greet_kb = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
+            greet_kb.row(b_bil, b_new)
+            await message.answer("ДАЛЬШЕ ", reply_markup=greet_kb)
+        elif message.text == 'новые теоремы 🤨':
+            await message.answer("пЫтом")
+        elif message.text == 'билеты 🤩':
+            ib = InlineKeyboardMarkup()
+            bi = []
+            for i in range(1, 18):
+                but = (InlineKeyboardButton(str(i), callback_data='b'+str(i)))
+                bi.append(but)
+            ib.add(bi[0],bi[1],bi[2],bi[3],bi[4],bi[5],bi[6],bi[7],bi[8],bi[9],bi[10],bi[11],bi[12],bi[13],bi[14],bi[15],bi[16],)
+            await message.answer("выбирай 🐸:", reply_markup=ib)
 
 
 if __name__ == "__main__":
